@@ -14,7 +14,8 @@ module.exports = {
       },
       colors: {
         "react-blue": "rgb(97, 218, 251)",
-        "logo-blue": "rgb(48, 124, 180)"
+        "logo-blue": "rgb(48, 124, 180)",
+        "note-list-bg": "rgb(241, 243, 244)"
       }
     },
   },
