@@ -11,7 +11,7 @@ export default function NoteItemContent({
 }) {
   const router = useRouter()
   const pathname = usePathname()
-  const selectedId = pathname?.split('/')[1] || null
+  const selectedId = pathname?.split('/')[2] || null
   
   const [isPending] = useTransition()
   const [isExpanded, setIsExpanded] = useState(false)
@@ -35,12 +35,12 @@ export default function NoteItemContent({
         itemRef.current.classList.remove('flash');
       }}
       className={[
-        'sidebar-note-list-item',
-        isExpanded ? 'note-expanded' : '',
+        'relative p-2 pl-4 rounded border-2 min-h-24',
+        isActive ? 'border-solid border-blue-400 bg-blue-100' : ''
       ].join(' ')}>
       {children}
       <button
-        className="sidebar-note-open"
+        className="absolute top-0 left-0 h-full w-4/5 bg-transparent"
         style={{
           backgroundColor: isPending
             ? 'var(--gray-80)'
@@ -57,11 +57,10 @@ export default function NoteItemContent({
             sidebarToggle.checked = true
           }
           router.push(`/note/${id}`)
-        }}>
-        Open note for preview
-      </button>
+        }}></button>
+
       <button
-        className="sidebar-note-toggle-expand"
+        className="absolute top-4 right-5"
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded(!isExpanded);

@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllNotes } from '@/lib/redis'
 import SidebarNoteList from "@/components/SidebarNoteList"
+import NoteListSkeleton from './NoteListSkeleton'
 
 export default async function Sidebar() {
-  const notes = await getAllNotes();
   return (
     <div className='w-1/4 min-w-[296px] h-full bg-white shadow'>
       <section className="flex flex-col items-start w-full mt-8 pl-3">
@@ -25,7 +24,9 @@ export default async function Sidebar() {
             {/* SideSearchField */}
         </section>
         <nav className='w-11/12'>
-          <SidebarNoteList notes={notes} />
+          <Suspense fallback={<NoteListSkeleton />}>
+            <SidebarNoteList />
+          </Suspense>
         </nav>
       </section>
     </div>
