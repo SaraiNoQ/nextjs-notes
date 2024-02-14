@@ -2,7 +2,8 @@ import React, {Suspense} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import SidebarNoteList from "@/components/SidebarNoteList"
-import NoteListSkeleton from './NoteListSkeleton'
+import NoteListSkeleton from '@/components/NoteListSkeleton'
+import EditButton from '@/components/EditButton'
 
 export default async function Sidebar() {
   return (
@@ -20,8 +21,11 @@ export default async function Sidebar() {
             <p className='text-2xl font-bold text-logo-blue tracking-wider underline'>REACT NOTES</p>
           </section>
         </Link>
-        <section className="" role="menubar">
+        <section className="mt-4" role="menubar">
             {/* SideSearchField */}
+          <section className="sidebar-menu" role="menubar">
+            <EditButton noteId={null}>NEW</EditButton>
+          </section>
         </section>
         <nav className='w-11/12'>
           <Suspense fallback={<NoteListSkeleton />}>
