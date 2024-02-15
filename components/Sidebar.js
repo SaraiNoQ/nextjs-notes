@@ -7,18 +7,18 @@ import EditButton from '@/components/EditButton'
 
 export default async function Sidebar() {
   return (
-    <div className='w-1/4 min-w-[296px] h-full bg-white shadow'>
+    <div className='w-1/4 min-w-[296px] h-full bg-white shadow z-10'>
       <section className="flex flex-col items-start w-full mt-8 pl-3">
         <Link href={'/'} className="">
-          <section className="flex gap-3 justify-center items-center">
+          <section className="flex gap-2 justify-center items-center">
             <Image
               src="/logo.svg"
               alt="logo"
-              width={22}
+              width={26}
               height={30}
               priority
             />
-            <p className='text-2xl font-bold text-logo-blue tracking-wider underline'>REACT NOTES</p>
+            <p className='text-3xl font-bold text-logo-blue tracking-wide underline'>REACT NOTES</p>
           </section>
         </Link>
         <section className="mt-4" role="menubar">

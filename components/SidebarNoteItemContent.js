@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useTransition } from 'react';
+import { useState, useRef, useEffect, useTransition } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 
 export default function NoteItemContent({
@@ -41,21 +41,7 @@ export default function NoteItemContent({
       {children}
       <button
         className="absolute top-0 left-0 h-full w-4/5 bg-transparent"
-        style={{
-          backgroundColor: isPending
-            ? 'var(--gray-80)'
-            : isActive
-              ? 'var(--tertiary-blue)'
-              : '',
-          border: isActive
-            ? '1px solid var(--primary-border)'
-            : '1px solid transparent',
-        }}
         onClick={() => {
-          const sidebarToggle = document.getElementById('sidebar-toggle')
-          if (sidebarToggle) {
-            sidebarToggle.checked = true
-          }
           router.push(`/note/${id}`)
         }}></button>
 

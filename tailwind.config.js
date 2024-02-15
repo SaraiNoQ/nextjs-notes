@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,7 +17,9 @@ module.exports = {
         "react-blue": "rgb(97, 218, 251)",
         "logo-blue": "rgb(48, 124, 180)",
         "note-list-bg": "rgb(241, 243, 244)",
-        "button-blue": "rgb(49, 126, 181)"
+        "button-blue": "rgb(49, 126, 181)",
+        "input-border": "rgb(202, 202, 202)",
+        "button-skyblue": "rgb(228, 244, 254)"
       },
       fontFamily: {
         chinese: [
