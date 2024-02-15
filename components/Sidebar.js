@@ -8,9 +8,9 @@ import EditButton from '@/components/EditButton'
 export default async function Sidebar() {
   return (
     <div className='w-1/4 min-w-[296px] h-full bg-white shadow z-10'>
-      <section className="flex flex-col items-start w-full mt-8 pl-3">
-        <Link href={'/'} className="">
-          <section className="flex gap-2 justify-center items-center">
+      <section className="flex flex-col items-start w-full h-full mt-8 pl-3">
+        <Link href={'/'} className="outline-none">
+          <section className="flex gap-2 justify-center items-center outline-none">
             <Image
               src="/logo.svg"
               alt="logo"
@@ -27,7 +27,7 @@ export default async function Sidebar() {
             <EditButton noteId={null}>NEW</EditButton>
           </section>
         </section>
-        <nav className='w-11/12'>
+        <nav className='w-11/12 h-5/6 overflow-y-auto mt-4'>
           <Suspense fallback={<NoteListSkeleton />}>
             <SidebarNoteList />
           </Suspense>

@@ -6,17 +6,21 @@ export default function Note({ noteId, note }) {
   const { title, content, updateTime } = note
 
   return (
-    <div className="note">
-      <div className="note-header">
-        <h1 className="note-title">{title}</h1>
-        <div className="note-menu" role="menubar">
-          <small className="note-updated-at" role="status">
+    <div className="flex flex-col justify-center items-center w-full h-full">
+      <div className="flex flex-row gap-4 w-3/5 justify-between items-center mt-16 mb-10">
+        <div className='flex flex-col w-full'>
+          <small className="text-sm" role="status">
             Last updated on {dayjs(updateTime).format('YYYY-MM-DD hh:mm:ss')}
           </small>
-            <EditButton noteId={noteId}>Edit</EditButton>
+          <h1 className="text-4xl font-bold tracking-wide mt-4 max-w-[90%] break-all line-clamp-3">{title}</h1>
+        </div>
+        
+        <div className="" role="menubar">
+          <EditButton noteId={noteId}>EDIT</EditButton>
         </div>
       </div>
-      <NotePreview>{content}</NotePreview>
+
+      <NotePreview width={true}>{content}</NotePreview>
     </div>
   )
 }

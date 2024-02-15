@@ -12,10 +12,11 @@ export default function NoteItemContent({
   const router = useRouter()
   const pathname = usePathname()
   const selectedId = pathname?.split('/')[2] || null
+  const editId = pathname?.split('/')[3] || null
   
   const [isPending] = useTransition()
   const [isExpanded, setIsExpanded] = useState(false)
-  const isActive = id === selectedId
+  const isActive = id === selectedId ? true : id === editId
 
   // Animate after title is edited.
   const itemRef = useRef(null);
@@ -40,13 +41,13 @@ export default function NoteItemContent({
       ].join(' ')}>
       {children}
       <button
-        className="absolute top-0 left-0 h-full w-4/5 bg-transparent"
+        className="absolute top-0 left-0 h-full w-4/5 bg-transparent outline-none"
         onClick={() => {
           router.push(`/note/${id}`)
         }}></button>
 
       <button
-        className="absolute top-4 right-5"
+        className="absolute top-4 right-5 outline-none"
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded(!isExpanded);

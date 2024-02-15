@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <div className={inter.className}>
           <div className="flex w-screen h-screen flex-row overflow-hidden">
             <Sidebar />
-            <section className="flex justify-center items-center w-full bg-slate-50">{children}</section>
+            <section className="w-full bg-slate-50">{children}</section>
           </div>
         </div>
       </body>

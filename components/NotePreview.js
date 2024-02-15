@@ -16,11 +16,15 @@ const allowedAttributes = Object.assign(
   }
 )
 
-export default function NotePreview({ children }) {
+export default function NotePreview({ width, children }) {
   return (
-    <div className="w-5/6 max-h-[75%] overflow-y-auto">
+    <div
+      className={[
+        "border-[1px] h-3/4 overflow-y-auto shadow-sm p-3",
+        width ? "w-[62%]" : "w-5/6"
+      ].join(" ")}>
       <div
-        className="text-with-markdown"
+        className="font-bold text-lg"
         dangerouslySetInnerHTML={{
           __html: sanitizeHtml(marked(children || ''), {
             allowedTags,

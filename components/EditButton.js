@@ -6,7 +6,7 @@ export default function EditButton({noteId, children}) {
     <Link
       href={`/note/edit/${noteId || ''}`}
       className={[
-        "flex justify-center items-center w-20 h-10 rounded-2xl",
+        "flex justify-center items-center w-20 h-10 rounded-3xl",
         isDraft ? 'bg-button-blue' : 'bg-white border-2 border-button-blue border-solid'
       ].join(" ")}>
       <button
