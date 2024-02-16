@@ -4,6 +4,7 @@ import Image from 'next/image'
 import SidebarNoteList from "@/components/SidebarNoteList"
 import NoteListSkeleton from '@/components/NoteListSkeleton'
 import EditButton from '@/components/EditButton'
+import SidebarSearchField from '@/components/SidebarSearchField'
 
 export default async function Sidebar() {
   return (
@@ -21,11 +22,9 @@ export default async function Sidebar() {
             <p className='text-3xl font-bold text-logo-blue tracking-wide underline'>REACT NOTES</p>
           </section>
         </Link>
-        <section className="mt-4" role="menubar">
-            {/* SideSearchField */}
-          <section className="sidebar-menu" role="menubar">
+        <section className="flex flex-row gap-2 mt-4 w-[90%]" role="menubar">
+            <SidebarSearchField />
             <EditButton noteId={null}>NEW</EditButton>
-          </section>
         </section>
         <nav className='w-11/12 h-5/6 overflow-y-auto mt-4'>
           <Suspense fallback={<NoteListSkeleton />}>

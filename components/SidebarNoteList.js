@@ -1,5 +1,6 @@
-import SidebarNoteItem from "./SidebarNoteItem"
 import { getAllNotes } from "@/lib/redis"
+import SidebarNoteItem from "@/components/SidebarNoteItem"
+import SidebarNoteListFilter from "@/components/SidebarNoteListFilter";
 
 export default async function NoteList() {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -13,13 +14,11 @@ export default async function NoteList() {
       </div>
     )
   }
-  return <ul className="w-full h-full">
-    {arr.map(([noteId, note]) => {
-      return (
-        <li key={noteId} className="w-full bg-note-list-bg min-h-24 rounded-md mb-4">
-          <SidebarNoteItem noteId={noteId} note={JSON.parse(note)} />
-        </li>
-      )
-    })}
-  </ul>
+  return (
+    <SidebarNoteListFilter>
+      {arr.map(([noteId, note]) => {
+        return <SidebarNoteItem noteId={noteId} note={JSON.parse(note)} />
+      })}
+    </SidebarNoteListFilter>
+  )
 }
