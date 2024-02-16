@@ -6,8 +6,7 @@ import { Children } from 'react';
 export default function SidebarNoteListFilter({ children }) {
   const searchParams = useSearchParams()
   const searchText = searchParams.get('q')
-
-  console.log('child', children)
+  
   return (
     <ul className="w-full h-full">
       {Children.map(children, (child, index) => {
